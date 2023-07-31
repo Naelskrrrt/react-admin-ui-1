@@ -4,6 +4,9 @@ import Users from "./pages/users/Users";
 // import Type_users from "./pages/products/type_users";
 import "./styles/global.scss"
 import Type_users from "./pages/type_users/type_users";
+import Conge from "./pages/conge/Conge"
+import Profile from "./pages/profile/Profile"
+import Type_conge from "./pages/type_conges/Type_conges"
 
 
 
@@ -55,6 +58,18 @@ function App() {
           path: "/type_users",
           element: <Type_users />
         },
+        {
+          path: "/ajoutConger",
+          element: <Conge />
+        },
+        {
+          path: "/profil",
+          element: <Profile />
+        },
+        {
+          path: "/type_conge",
+          element: <Type_conge />
+        }
       ]
     },
     {

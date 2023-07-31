@@ -53,7 +53,7 @@ export const menu = [
         },
         {
           id: 5,
-          title: "Solde de Congés",
+          title: "Solde de Congés des Employés",
           url: "/solde_conge",
           icon: "archiver.png"
         }
