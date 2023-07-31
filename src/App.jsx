@@ -7,6 +7,9 @@ import Type_users from "./pages/type_users/type_users";
 import Conge from "./pages/conge/Conge"
 import Profile from "./pages/profile/Profile"
 import Type_conge from "./pages/type_conges/Type_conges"
+import Stats from "./pages/stats/Stats";
+import Solde_conge from "./pages/solde_conge/Solde_conge";
+
 
 
 
@@ -69,6 +72,14 @@ function App() {
         {
           path: "/type_conge",
           element: <Type_conge />
+        },
+        {
+          path: "/stats",
+          element: <Stats />
+        },
+        {
+          path: "/solde_conge",
+          element: <Solde_conge />
         }
       ]
     },
