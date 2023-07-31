@@ -1,4 +1,24 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('./variables.scss');
+// ROOT
+// BG
+$main-bg: #0e0a1a;
+$soft-bg: #1d192cc7;
+$dark-bg: #0b0916;
+
+// Text
+$main-color: white;
+$soft-bg: #ddd;
+$dark-color: #0e0a1a;
+$primary-blue:  #1879b9;
+$grey: #6f7478;
+$dark-blue: #203647;
+
+.root{
+  overflow: hidden;
+}
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,3 +28,31 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.main {
+  font-family: "Poppins", "Inter", sans-serif;
+  background-color: $main-bg;
+  color :$main-color;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display:flex
+}
+
+.menuContainer{
+  width: 300px;
+  padding: 5px 20px;
+  border-right: 2px solid $soft-bg;
+}
+
+.contentContainer{
+  width: 100%;
+  padding: 5px 20px;
+  // background: #fff;
+  height: calc(100vh - 111.11px - 40px);
+  padding: 10px;
+  border-radius: 20px;
+}
+

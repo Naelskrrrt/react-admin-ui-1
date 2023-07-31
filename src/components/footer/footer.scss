@@ -1,0 +1,19 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    span{
+
+        
+        &:first-child{
+            font-weight: bold;
+        }
+        &:last-child{
+            font-size: 14px;
+        }
+    }
+}
