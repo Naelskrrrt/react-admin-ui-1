@@ -6,11 +6,11 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    background: rgba(45, 45, 143, 0.308);
+    // background: rgba(45, 45, 143, 0.308);
     height: $main-size;
     position: relative;
     bottom: 10px;
-    overflow-y: scroll;
+    // overflow-y: scroll; 
     border-radius: 10px;
 
     .profile_image{
@@ -88,6 +88,11 @@
             &:first-child{
                 background: $primary-blue;
                 color: #fff;
+                transition: .2s $cubic-bezier;
+
+                &:hover{
+                    background: $secondary-blue;
+                }
             }
 
             &:last-child{
@@ -96,11 +101,19 @@
                 align-items: center;
                 justify-content: center;
                 color: #fff;
-
+                transition: .2s $cubic-bezier;
                 img{
                     margin-right: 5px;
                 }
+                &:hover{
+                    background: $secondary-alert;
+                }
+                
             }
+
+
+
+           
         }
     }
 }

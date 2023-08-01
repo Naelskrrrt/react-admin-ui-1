@@ -2,7 +2,7 @@ import "./home.scss"
 import "../../styles/variables.scss"
 function Home() {
     return ( 
-        <div className="home" style={{backgroundColor: "#0e0a1a"}}>
+        <div className="home">
             <div className="box box1">Solde</div>
             <div className="box box2">Mois</div>
             <div className="box box3">Historique Congé</div>

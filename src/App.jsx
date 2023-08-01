@@ -35,9 +35,11 @@ function App() {
           <div className="menuContainer">
             <Menu />
           </div>
-          <div className="contentContainer">
-            <Outlet />
-          </div>
+          <section className="content">
+            <div className="contentContainer">
+              <Outlet />
+            </div>
+          </section>
         </div>
         <Footer />
       </div>

@@ -8,9 +8,15 @@ $main-color: white;
 $soft-color: #ddd;
 $dark-color: #090516;
 $primary-blue:  #1879b9;
+$secondary-blue:  #205e88;
 $grey: #6f7478;
 $dark-blue: #203647;
 $primary-alert: #DF2935;
+$secondary-alert: #b3313a;
+
 
 // Size
 $main-size: calc(100vh - 111.11px - 33.33px);
+
+// timing
+$cubic-bezier: cubic-bezier(.79,.06,.73,1.07);

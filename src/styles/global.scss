@@ -45,6 +45,8 @@ a {
   width: 300px;
   padding: 5px 20px;
   border-right: 2px solid $soft-bg;
+  height: calc(100vh - 111.11px - 40px);
+
 }
 
 .contentContainer{
@@ -54,5 +56,22 @@ a {
   height: calc(100vh - 111.11px - 40px);
   padding: 10px;
   border-radius: 20px;
+  // border-radius: 10px;
+  // background: #fff;
+  margin: 10px;
+}
+
+.content{
+  width: 100%;
+  // background: grey;
+  margin: 10px;
+  position: relative;
+  bottom: 10px;
+  height: calc(100vh - 111.11px - 40px);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
