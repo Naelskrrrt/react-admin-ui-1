@@ -34,18 +34,6 @@ export const menu = [
           icon: "user.svg",
         },
         {
-          id: 2,
-          title: "Type de Congés",
-          url: "/type_conge",
-          icon: "gestion.png",
-        },
-        {
-          id: 3,
-          title: "Type Utilisateurs",
-          url: "/type_users",
-          icon: "order.svg",
-        },
-        {
           id: 4,
           title: "Stats",
           url: "/stats",
@@ -56,6 +44,19 @@ export const menu = [
           title: "Solde de Congés des Employés",
           url: "/solde_conge",
           icon: "archiver.png"
+        }
+        ,
+        {
+          id: 2,
+          title: "Type de Congés",
+          url: "/type_conge",
+          icon: "gestion.png",
+        },
+        {
+          id: 3,
+          title: "Type Utilisateurs",
+          url: "/type_users",
+          icon: "order.svg",
         }
       ],
     },

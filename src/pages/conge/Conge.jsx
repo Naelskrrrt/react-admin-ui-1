@@ -1,7 +1,36 @@
 import React from 'react'
+import { useState } from 'react';
 import "./conge.scss"
 
 function Conge() {
+
+  const [isDateInputDebut,  setIsDateInputDebut] = useState(false);
+  const [isDateInputFin,  setIsDateInputFin] = useState(false);
+
+
+  const handleFocusDebut = () => {
+    setIsDateInputDebut(true);
+    // setIsDateInputFin(true)
+  };
+
+  const handleFocusFin = () => {
+    setIsDateInputFin(true);
+    // setIsDateInputFin(true)
+  };
+
+  const handleBlurDebut = (event) => {
+    if (!event.target.value) {
+      setIsDateInputDebut(false);
+    }
+  };
+
+  const handleBlurFin = (event) => {
+    if (!event.target.value) {
+      setIsDateInputFin(false);
+    }
+  };
+
+
   return (
     <div className='conge'>
       <div className='conge_title'>
@@ -34,20 +63,23 @@ function Conge() {
             <span>Motifs Générals</span>
           </div>
         </div>
-        <div>
+        <div className='debut_fin'>
           <div className='debut_date'>
-            <input type="date" name='debut_date' id='debut_date'/>
+            <input type={isDateInputDebut ? 'date' : 'text'} name='debut_date' id='debut_date' onFocus={handleFocusDebut} onBlur={handleBlurDebut} required/>
             <span>Date Début</span>
           </div>
           <div className='fin_date'>
-            <input type="date" name='fin_date' id='fin_date'/>
+            <input type={isDateInputFin ? 'date' : 'text'} name='fin_date' id='fin_date' onFocus={handleFocusFin} onBlur={handleBlurFin} required/>
             <span>Date Fin</span>
           </div>
 
           <div className='calc_solde'>
-            <span>Reste solde congés: </span>
-            <span>10 jours</span>
+            <p>Reste solde congés: </p>
+            <p className='reste_solde'>10 jours</p>
           </div>
+        </div>
+        <div className='btn_save'>
+          <button className='save'>Valider</button>
         </div>
       </div>
       <div className='footer_conge'>
