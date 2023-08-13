@@ -8,7 +8,7 @@ import Conge from "./pages/conge/Conge"
 import Profile from "./pages/profile/Profile"
 import Type_conge from "./pages/type_conges/Type_conges"
 import Stats from "./pages/stats/Stats";
-import Solde_conge from "./pages/solde_conge/Solde_conge";
+
 
 
 
@@ -22,6 +22,7 @@ import { Navbar } from "./components/navbar/Navbar";
 import { Footer } from "./components/footer/Footer";
 import { Menu } from "./components/menu/Menu"
 import Login from "./pages/login/Login";
+import Conge_list from "./pages/conge_list/Conge_list";
 
 // VIDEO: 23:17
 
@@ -81,7 +82,7 @@ function App() {
         },
         {
           path: "/solde_conge",
-          element: <Solde_conge />
+          element: <Conge_list />
         }
       ]
     },

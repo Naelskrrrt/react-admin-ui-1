@@ -1,7 +1,14 @@
 import { DataGrid } from "@mui/x-data-grid";
 
-import DataTable from "../dataTable/DataTable";
+
+import DataTable from "./dataTable/DataTable";
 import "./users.scss"
+import { AddOutlined, ShoppingCartRounded } from "@mui/icons-material";
+import { Button } from "@mui/material";
+import { useModal } from "../../components/ModalContext";
+import AddUserModal from "./modal/AddUserModal";
+import UpdateModal from "./modal/UpdateModal";
+
 const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
@@ -57,25 +64,31 @@ const columns = [
     },
   ];
   
-  const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35, status: true},
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42, status: false},
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45, status: true},
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-  ];
+  // const rows = [
+  //   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35, status: true},
+  //   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42, status: false},
+  //   { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45, status: true},
+  //   { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+  //   { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+  //   { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+  //   { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+  //   { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+  //   { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+  // ];
+  
 function Users() {
+  const { openModal, closeModal, getModalState } = useModal();
     return ( 
         <div className="users">
             <div className="info">
-                <h1>Users</h1>
-                <button>Ajouter un utilisateur</button>
+                <h1>Utilisateurs</h1>
+                <Button onClick={() => openModal("modal3")} variant="text" startIcon={<AddOutlined />}>
+                  Ajouter
+                </Button>
             </div>
             <DataTable columns={columns } />
+            <AddUserModal title="Bonjour"> Mandehaaaaaa</AddUserModal>
+            <UpdateModal title='Bonjour'>Vomaika tafa be</UpdateModal>
         </div>
      );
 }

@@ -49,7 +49,7 @@ function Conge() {
         <div className='type_motif'>
           <div className='type_conge'>
             <select name="pets" id="pet-select" required>
-              <option value="">--Please choose an option--</option>
+              <option value="">-- Type de Congés --</option>
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
               <option value="hamster">Hamster</option>

@@ -14,19 +14,27 @@ export const menu = [
           title: "Profil",
           url: "/profil",
           icon: "user.svg",
-        },
-        {
-          id: 3,
-          title: "Ajouter un Congé",
-          url: "/ajoutConger",
-          icon: "conge.png"
         }
+        // },
+        // {
+        //   id: 3,
+        //   title: "Ajouter un Congé",
+        //   url: "/ajoutConger",
+        //   icon: "conge.png"
+        // }
       ],
     },
     {
       id: 2,
       title: "Accès Superieurs et Admins",
       listItems: [
+        
+        {
+          id: 5,
+          title: "Congés",
+          url: "/solde_conge",
+          icon: "conge.svg"
+        },
         {
           id: 1,
           title: "Users",
@@ -37,24 +45,13 @@ export const menu = [
           id: 4,
           title: "Stats",
           url: "/stats",
-          icon: "post2.svg",
-        },
-        {
-          id: 5,
-          title: "Solde de Congés des Employés",
-          url: "/solde_conge",
-          icon: "archiver.png"
+          icon: "stats.svg",
         }
         ,
-        {
-          id: 2,
-          title: "Type de Congés",
-          url: "/type_conge",
-          icon: "gestion.png",
-        },
+        
         {
           id: 3,
-          title: "Type Utilisateurs",
+          title: "Type Congés",
           url: "/type_users",
           icon: "order.svg",
         }

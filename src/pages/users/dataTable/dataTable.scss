@@ -1,0 +1,62 @@
+@import "../../../styles/variables.scss";
+
+.dataTable{
+    .dataGrid{
+        background: #fff;
+        padding: 10px;
+        border-radius: 10px;
+
+        .MuiDataGrid-toolbarContainer{
+            flex-direction: row-reverse;
+        }
+
+        img{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .MuiDataGrid-columnHeaders{
+            background: $primary-blue;
+            color: #fff;
+            font-family: 'Poppins';
+            font-weight: 600;
+        }
+        .MuiDataGrid-virtualScrollerRenderZone{
+            font-family: 'Poppins';
+            color: $dark-bg;
+            font-weight: 400;
+        }
+
+        .MuiButtonBase{
+            img{
+                width: 10px;
+                height: 10px;
+            }
+        }
+        .MuiDataGrid-actionsCell{
+            .MuiButtonBase-root:nth-child(1){
+                // border: 1px solid $grey;
+                // padding: 5px;
+                border-radius: 10px;
+                // background: $main-bg;
+                position: relative;
+                    
+                
+                
+            }
+            .MuiButtonBase-root:nth-child(2){
+                // border: 1px solid $grey;
+                // padding: 5px;
+                border-radius: 10px;
+                // background: $main-bg;
+                position: relative;           
+                
+            }
+        }
+        .MuiDataGrid-main, .MuiDataGrid-columnHeaders {
+            overflow-x: hidden;
+        }
+        
+    }
+}

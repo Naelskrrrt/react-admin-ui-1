@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.conger_container{
+    width: 100%;
+    // background: #000;
+    height:  450px;
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 10px;
+
+    div{
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid $grey;
+    }
+    .conger_inputs{
+        grid-column: span 5;
+        grid-row: span 6;
+        padding: 10px;
+    }
+    .conger_list{
+        grid-column: span 3;
+        grid-row: span 6;
+    }
+    .conger_footer{
+        grid-column: span 8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:300px;
+    }
+}

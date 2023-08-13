@@ -1,0 +1,30 @@
+@import "../../styles/variables.scss";
+.users{
+    .info{
+        width: 100%;
+        height: 60px;
+        background: rgba(185, 184, 184, 0.11);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+
+        button{
+            padding: 5px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-family: 'Poppins';
+            font-weight: 600;
+            color: white;
+            background: $primary-blue;
+            border-radius: 20px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}
