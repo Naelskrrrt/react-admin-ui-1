@@ -8,6 +8,7 @@ import { Button } from "@mui/material";
 import { useModal } from "../../components/ModalContext";
 import AddUserModal from "./modal/AddUserModal";
 import UpdateModal from "./modal/UpdateModal";
+import AddUserInput from "./AddUserInput";
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -87,7 +88,7 @@ function Users() {
                 </Button>
             </div>
             <DataTable columns={columns } />
-            <AddUserModal title="Bonjour"> Mandehaaaaaa</AddUserModal>
+            <AddUserModal title="Ajouter un utilisateur"> <AddUserInput /></AddUserModal>
             <UpdateModal title='Bonjour'>Vomaika tafa be</UpdateModal>
         </div>
      );

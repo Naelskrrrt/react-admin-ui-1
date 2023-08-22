@@ -1,34 +1,44 @@
-import React from 'react';
 
-const ElementList = () => {
-  const elements = [
-    "Élément 1",
-    "Élément 2",
-    "Élément 3",
-    "Élément 4",
-    "Élément 5",
-    "Élément 6",
-    "Élément 7",
-    "Élément 8",
-    "Élément 9",
-    "Élément 10"
-  ];
+
+import React, { useEffect, useState } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
+import axios from 'axios';
+  
+
+
+export default function ElementList() {
+  const [data, setData] = useState({ 
+    rows: [],
+    columns: [
+      { field: 'id_type_congee', headerName: '#', width: 50 },
+      { field: 'type_congee_desc', headerName: 'Type Congés', width: 250},
+      { field: 'avance_demande', headerName: 'Délai', type: 'number', width: 60 },
+    ]
+  });
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/type_conger')
+      .then((response) => {
+        console.log(response)
+        setData((prevData) => ({ ...prevData, rows: response.data }));
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  const getRowId = (row) => row.id_type_congee
 
   return (
-    <div className="flex flex-col items-center mt-10">
-      <h1 className="text-2xl font-bold mb-4">Liste d'éléments</h1>
-      <ul className="w-80 border rounded-md shadow-md">
-        {elements.map((element, index) => (
-          <li
-            key={index}
-            className={`py-2 px-4 border-b ${index === elements.length - 1 ? '' : 'border-gray-300'} last:border-0`}
-          >
-            {element}
-          </li>
-        ))}
-      </ul>
+    <div style={{ height: 250, width: '100%' }}>
+      <DataGrid
+        getRowId={getRowId}
+        rows={data.rows}
+        columns={data.columns}
+        hideFooterPagination
+        disableSelectionOnClick
+        autoHeight
+      />
     </div>
   );
-};
-
-export default ElementList;
+}

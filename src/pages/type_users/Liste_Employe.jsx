@@ -1,6 +1,6 @@
 import { DataGrid, GridActionsCellItem, GridDeleteIcon, GridToolbar } from "@mui/x-data-grid";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import "./dataTable_congeList.scss"
+import "./list_employe.scss"
 import axios from "axios";
 
 
@@ -9,7 +9,7 @@ import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import { EditNoteOutlined, HighlightOffOutlined, TaskAltOutlined } from "@mui/icons-material";
 import { Button, Tooltip } from "@mui/material";
-import { useModal } from "../../../components/ModalContext";
+// import { useModal } from "../../../components/ModalContext";
 import Swal from "sweetalert2";
 // import { useModal } from "../../../components/ModalContext";
 
@@ -18,9 +18,9 @@ import Swal from "sweetalert2";
 
 
 
-function DataTable() {
+function Liste_Employe() {
 
-  const {openModal, closeModal, getModalState} = useModal()
+//   const {openModal, closeModal, getModalState} = useModal()
 
   let [rowSelectionModel, setRowSelectionModel] = useState([])
 
@@ -45,12 +45,12 @@ function DataTable() {
           'success'
         )
         axios
-        .delete(`http://localhost:8080/conger/${id}`)
+        .delete(`http://localhost:8080/employer/${id}`)
         .then((response) => {
           console.log(response)
           setData((prevData) => ({
             ...prevData,
-            rows: prevData.rows.filter((row) => row.id_conger !== id),
+            rows: prevData.rows.filter((row) => row.id_employe !== id),
           }));
         })
         .catch((error) => {
@@ -69,41 +69,51 @@ function DataTable() {
   const [data, setData] = useState({
     rows: [],
     columns:[
-        { field: 'id_conger', headerName: '#', width: 50 },
+        { field: 'id_employe', headerName: '#', width: 70 },
         {
-            field: "nom_employe", headerName:"Nom", width:100,
+            field: "photo_employe",
+            headerName: "Avatar",
+            width: 100,
+            renderCell: (params) =>{
+                if(params.row.photo_employe){
+                    return (
+                        
+                        <img src={params.row.photo_employe} style={{ width: "60px", height: "60px", objectFit: "contain"}} />
+                    )
+                } else{
+                    return (
+                        
+                        <img src="/noavatar.png" style={{ width: "60px", height: "60px"}} />
+                    )
+                }
+            }
         },
         {
-          field: 'email_user',
-          headerName: 'Email',
-          width: 170,
+            field: "nom_emp", headerName:"Nom", width:170,
+        },
+        {
+          field: 'prenom_employe',
+          headerName: 'Prénoms',
+          width: 200,
           editable: true,
         },
         {
-          field: "date_deb",
-          headerName: "Date Début",
-          width: 150,
+          field: "fonction_employe",
+          headerName: "Fonction",
+          width: 170,
         },
         {
-          field: "date_fin",
-          headerName: "Date Fin",
-          width: 150,
-        },
-        {
-          field: "duree",
-          headerName: "Durée",
-          width: 100,
-        },
-        {
-          field: "type_congee_desc",
-          headerName: "Type de Congés",
+          field: "nom_sup",
+          headerName: "Nom du supérieur",
           width: 200,
+          renderCell: (params) => {
+            if(params.row.nom_sup){
+                return params.row.nom_sup
+            } else return <p style={{color: "red", fontWeight: "500"}}>Aucun</p>
+          }
         },
-        {
-          field: "statut_conger",
-          headerName: "Status",
-          width: 100
-        },
+        
+        
        
         {
           field: 'actions',
@@ -119,15 +129,7 @@ function DataTable() {
               label="Delete"
               onClick={() => deleteConge(params.id)}
             />,
-            <GridActionsCellItem
-            icon={
-              <Tooltip title="Modifier">
-                <EditNoteOutlined style={{color: '#1879B9', fontSize: '25px'}}/>
-              </Tooltip>
-            }
-            onClick={() => openModal('modal2')}
-            label="Toggle Admin"
-          />,
+           
           ],
         },
       ],
@@ -138,7 +140,7 @@ function DataTable() {
       
     
       useEffect(() => {
-        axios.get('http://localhost:8080/conger')
+        axios.get('http://localhost:8080/employer')
           .then((response) => {
             console.log(response)
             setData((prevData) => ({ ...prevData, rows: response.data }));
@@ -148,7 +150,7 @@ function DataTable() {
           });
       }, []);
 
-      const getRowId = (row) => row.id_conger
+      const getRowId = (row) => row.id_employe
 
       
       const [showAddButton, setShowAddButton] = useState(false);
@@ -172,6 +174,7 @@ function DataTable() {
       <>
         <div className="dataTable">
             <DataGrid
+                density="comfortable"
                 className="dataGrid"
                 rows={data.rows}
                 getRowId={getRowId}
@@ -191,7 +194,7 @@ function DataTable() {
                     }
                 }}
                 pageSizeOptions={[5]}
-                checkboxSelection
+                // checkboxSelection
                 
                 onRowSelectionModelChange={(newRowSelectionModel) => {
                   setRowSelectionModel(newRowSelectionModel);
@@ -202,6 +205,7 @@ function DataTable() {
                 
                 disableRowSelectionOnClick
                 disableColumnFilter
+                
                 disableColumnSelector
             />
 
@@ -219,4 +223,4 @@ function DataTable() {
      );
 }
 
-export default DataTable;
+export default Liste_Employe;

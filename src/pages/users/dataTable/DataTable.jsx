@@ -9,6 +9,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { EditNoteOutlined } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 import { useModal } from "../../../components/ModalContext";
+import Swal from "sweetalert2";
 
 
 
@@ -18,18 +19,44 @@ function DataTable() {
 
   const { openModal, closeModal, getModalState } = useModal();
   const deleteUser = useCallback((id) => {
-    axios
-    .delete(`http://localhost:8080/utilisateur/${id}`)
-    .then((response) => {
-      console.log(response)
-      setData((prevData) => ({
-        ...prevData,
-        rows: prevData.rows.filter((row) => row.id_utilisateur !== id),
-      }));
+    Swal.fire({
+      title: 'Vous etes sure?',
+      text: "Ce que vous essayez de faire est irreverssible",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, Supprimer',
+      cancelButtonText: "Annuler"
+      
+    }).then((result) => {
+      console.log('miverif le condition')
+      console.log(result.isConfirmed)
+      if(result.isConfirmed){
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        axios
+        .delete(`http://localhost:8080/utilisateur/${id}`)
+        .then((response) => {
+          console.log(response)
+          setData((prevData) => ({
+            ...prevData,
+            rows: prevData.rows.filter((row) => row.id_utilisateur !== id),
+          }));
+        })
+        .catch((error) => {
+          console.error("Error deleting data:", error);
+        })
+      }
+      
+    }).catch((err) => {
+      console.log("Something wrong: ", err)
     })
-    .catch((error) => {
-      console.error("Error deleting data:", error);
-    })
+    
+   
     
   }, []);
 
@@ -41,8 +68,8 @@ function DataTable() {
             field: "num_matricule", headerName:"Matricule", width:100,
         },
         {
-          field: "type_utilisateur",
-          headerName: "Type",
+          field: "type_desc",
+          headerName: "Authorisation",
           width: 150,
         },
         {

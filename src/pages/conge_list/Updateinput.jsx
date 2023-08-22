@@ -57,7 +57,7 @@ export default function Updateinput({ selectDefault, datePickerDefaultDeb, dateP
           setInputValue(newInputValue); //ID_TYPE CONGER
         }}
         id="controllable-states-demo"
-        options={options.map(option => option.id_type_conger +" - "+ option.type_conger_desc)} // Utilisez les labels des options
+        options={options.map(option => option.id_type_congee +" - "+ option.type_congee_desc)} // Utilisez les labels des options
         sx={{ width: "100%", margin: "10px 0px" }}
         renderInput={(params) => <TextField {...params} label="-- Type de congés --" />}
       />

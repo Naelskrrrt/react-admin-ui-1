@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/base": "^5.0.0-beta.10",
     "@mui/icons-material": "^5.14.3",
     "@mui/lab": "^5.0.0-alpha.139",
     "@mui/material": "^5.14.4",
@@ -22,6 +23,8 @@
     "axios": "^1.4.0",
     "boxicons": "^2.1.4",
     "dayjs": "^1.11.9",
+    "formik": "^2.4.3",
+    "image-compressor": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
@@ -29,7 +32,8 @@
     "sass": "^1.64.1",
     "styled-components": "^5.3.11",
     "sweetalert2": "^11.7.22",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",

@@ -3,7 +3,7 @@ import Users from "./pages/users/Users";
 // import Product from "./pages/products/Product";
 // import Type_users from "./pages/products/type_users";
 import "./styles/global.scss"
-import Type_users from "./pages/type_users/type_users";
+import Liste_Employe from "./pages/type_users/Liste_Employe";
 import Conge from "./pages/conge/Conge"
 import Profile from "./pages/profile/Profile"
 import Type_conge from "./pages/type_conges/Type_conges"
@@ -23,6 +23,8 @@ import { Footer } from "./components/footer/Footer";
 import { Menu } from "./components/menu/Menu"
 import Login from "./pages/login/Login";
 import Conge_list from "./pages/conge_list/Conge_list";
+import { Fab, Tooltip } from "@mui/material";
+import { AddOutlined, PersonAddAlt1Outlined } from "@mui/icons-material";
 
 // VIDEO: 23:17
 
@@ -39,6 +41,7 @@ function App() {
           <section className="content">
             <div className="contentContainer">
               <Outlet />
+              
             </div>
           </section>
         </div>
@@ -61,8 +64,8 @@ function App() {
           element: <Users />
         },
         {
-          path: "/type_users",
-          element: <Type_users />
+          path: "/liste_employe",
+          element: <Liste_Employe />
         },
         {
           path: "/ajoutConger",
